@@ -1,0 +1,8 @@
+.signup input:not([type="checkbox"]),
+.signup button {
+    margin: 6px auto;
+    display: block;
+}
+.signup u {
+    cursor: pointer;
+}

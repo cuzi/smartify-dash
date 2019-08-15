@@ -1,0 +1,31 @@
+.site-item {
+    width: 100%;
+    max-width: 300px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 8px 0;
+    text-align: center;
+    margin: 16px 10px;
+    display: inline-block;
+}
+.site-item h3 {
+    margin-bottom: 12px;
+}
+.site-item .site-item__view-more,
+.site-item a {
+    display: inline-block;
+    width: calc(100% - 10px);
+    text-align: left;
+    padding: 5px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    color: inherit;
+}
+.site-item .site-item__view-more:hover,
+.site-item a:hover {
+    color: #77bbff;
+}
+.site-item .site-item__view-more {
+    text-align: right;
+    cursor: pointer;
+    font-size: 12px;
+}

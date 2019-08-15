@@ -1,0 +1,8 @@
+.login input:not([type="checkbox"]),
+.login button {
+    margin: 6px auto;
+    display: block;
+}
+.login u {
+    cursor: pointer;
+}

@@ -1,0 +1,11 @@
+.icon {
+    width: 45px;
+}
+.icon--fallback {
+    background: #222;
+    border-radius: 50%;
+    text-align: center;
+    color: #77bbff;
+    text-transform: uppercase;
+    cursor: default;
+}

@@ -1,0 +1,17 @@
+.user-sites h1 {
+    font-size: 22px;
+    padding: 15px;
+    margin-top: 35px;
+    width: calc(100% - 30px);
+}
+.user-sites__list {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    width: 100%;
+
+}
+.user-sites h1 > input {
+    float: right;
+}
