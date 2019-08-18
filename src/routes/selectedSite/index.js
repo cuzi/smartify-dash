@@ -1,11 +1,22 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import useSites from '../../hooks/sites';
 import './style.css';
 import Icon from "../../components/Icon";
+import {getBarList} from "../../http";
 
 function SelectedSite() {
     const {sites, selectedSite, setSelectedSite, removeSite, removeSiteUrl} = useSites();
+    const [barLinks, setLinks] = useState(null);
     const currSite = sites.filter(({id}) => id === selectedSite)[0];
+
+    useEffect(() => {
+        if (currSite && setLinks) {
+            getBarList({site: currSite.urls[0].url, cb: data => {
+                setLinks(data.slice(0,5));
+            }});
+        }
+    }, [setLinks]);
+
     if (currSite) {
 
         return <div className="selected-site">
@@ -19,9 +30,19 @@ function SelectedSite() {
             </h1>
             <div className="selected-site__toolbar">
                 <h2>SmartNav preview</h2>
-                <div className="toolbar">
-                    tesfd | sdfdsf | sdfsdf
-                </div>
+                {barLinks ? barLinks.length ?  <div className="toolbar">
+                    {barLinks.map(({url, title}) => <a
+                        href={url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        key={url}
+                        title={title}>
+                        {title}
+                        </a>)
+                        .reduce((prev, curr) => [prev, ' | ', curr])}
+                </div> :
+                    <h4>SmartNav didn't set the right navigation for you, keep using the extension and it will update soon!</h4> : <h4>Loading...</h4>
+                }
             </div>
             <div className="selected-site__history">
                 <h2>History</h2>

@@ -16,7 +16,7 @@ const useSites = () => {
     function removeSiteUrl(value) {
         dispatch(_removeSiteUrl(value));
         const {site, url} = value;
-        const _url = getSiteById(sites, site).urls.filter(u => u.url === url)[0];
+        const _url = getSiteById(sites, site).urls.filter(u => u.id === url)[0];
         removeSiteHttp({site: _url.url, url: _url.id})
     }
     function removeSite(value) {

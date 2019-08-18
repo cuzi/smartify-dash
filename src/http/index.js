@@ -2,13 +2,18 @@ const apiUrl = 'https://the-internet.ninja/smartify';
 
 
 const _fetcher = ({url = '', method = 'GET', body, isJson = true}, cb, errorFn) => {
-    fetch(url, {
+    const queryBody =  method === 'GET';
+    const query = queryBody && body ? '?' + Object.keys(body).map(function(k) {
+            return encodeURIComponent(k) + '=' + encodeURIComponent(body[k])
+        }).join('&') : '';
+
+    fetch(url + query, {
         method: method,
         credentials: 'include',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: body ? JSON.stringify(body) : null,
+        body: body && !queryBody ? JSON.stringify(body) : null,
     }).then(cb ? isJson ? (_ => _.json().then(res => {
         if (res.statusCode  && res.statusCode > 300) {
             errorFn && errorFn(res.statusCode);
@@ -24,6 +29,15 @@ export const httpSignup = ({name, password, isComp, cb, errorFn}) => {
             "userName": name,
             "userPass": password,
             "userType": isComp ? 1 : 0
+        }}, cb, errorFn);
+};
+
+
+export const getBarList = ({site, cb, errorFn}) => {
+    _fetcher({url: `${apiUrl}/url`, body: {
+            "no_track": 'true',
+            "title": 'jj',
+            "url": site,
         }}, cb, errorFn);
 };
 

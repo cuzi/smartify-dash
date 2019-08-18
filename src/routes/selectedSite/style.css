@@ -67,3 +67,18 @@
 .history-list__row > span:nth-last-of-type(1):hover {
     color: #ff9891;
 }
+
+.toolbar {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.toolbar a {
+    color: #fff;
+    display: inline-block;
+    max-width: calc(20% - 1em);
+    white-space: nowrap;
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
