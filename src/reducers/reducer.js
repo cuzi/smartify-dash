@@ -1,4 +1,12 @@
-import {CHANGE_ROUTE, SELECT_SITE, SET_USER, SET_SITES, REMOVE_SITE_URL, REMOVE_SITE} from "../actions/route";
+import {
+    CHANGE_ROUTE,
+    SELECT_SITE,
+    SET_USER,
+    SET_SITES,
+    REMOVE_SITE_URL,
+    REMOVE_SITE,
+    SELECT_DOMAIN, SET_DOMAINS
+} from "../actions/route";
 
 
 const initialState = {
@@ -6,6 +14,8 @@ const initialState = {
     user: null,
     route: 'login',
     selectedSite: -1,
+    selectedDomain: -1,
+    domains: null,
     sites: null,
 };
 
@@ -16,14 +26,20 @@ const smartifyReducer  = (state, action) => {
         case CHANGE_ROUTE:
             return {...state, route: action.payload || state.route };
 
+        case SELECT_DOMAIN:
+            return {...state, selectedDomain: action.payload || state.selectedDomain };
+
+        case SET_DOMAINS:
+            return {...state, domains: action.payload || state.domains };
+
         case SELECT_SITE:
             return {...state, selectedSite: action.payload || state.selectedSite };
 
-        case SET_USER:
-            return {...state, user: action.payload };
-
         case SET_SITES:
             return {...state, sites: action.payload || state.sites };
+
+        case SET_USER:
+            return {...state, user: action.payload };
 
         case REMOVE_SITE_URL:
             const {url, site} = action.payload ;

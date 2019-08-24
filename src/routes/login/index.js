@@ -1,4 +1,4 @@
-import React, {useState, useCallback, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import useRouter from "../../router/hooks";
 import './style.css';
 import {httpAuth, httpLogin} from "../../http";
@@ -8,7 +8,7 @@ function Login() {
     const [name, setName] = useState('');
     const [error, setError] = useState(false);
     const [password, setPass] = useState('');
-    const cb = ({userType, userName: name}) =>  setUser({userType, name});
+    const cb = ({userType, userName: name}) =>  setUser({userType: 1, name});
 
     useEffect(() => httpAuth({cb}),[]);
 

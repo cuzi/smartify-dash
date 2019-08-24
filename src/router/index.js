@@ -9,7 +9,7 @@ function Router() {
 
     useEffect(() => {
         if (!!preUser !== !!user) {
-            changeRoute(user ? 'userSites' : 'login')
+            changeRoute(user ? (!user.userType ? 'userSites' : 'partnersDash') : 'login');
         }
     }, [user, changeRoute]);
 

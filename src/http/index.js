@@ -60,6 +60,14 @@ export const httpGetSites = ({cb, errorFn}) => {
     _fetcher({url: `${apiUrl}/sites` }, cb, errorFn);
 };
 
+export const httpGetDomains = ({cb, errorFn}) => {
+    _fetcher({url: `${apiUrl}/domains` }, cb, errorFn);
+};
+
+export const httpAddDomain = ({domain, cb, errorFn}) => {
+    _fetcher({url: `${apiUrl}/addDomain`, method: 'POST', body: {domain} }, cb, errorFn);
+};
+
 export const httpRemove = ({site, url, deleteAll, cb, errorFn}) => {
     _fetcher({
         url: `${apiUrl}/removeSite`,

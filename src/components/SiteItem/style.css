@@ -3,7 +3,8 @@
     max-width: 300px;
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.4);
-    padding: 8px 0;
+    padding: 8px 0 28px;
+    position: relative;
     text-align: center;
     margin: 16px 10px;
     display: inline-block;
@@ -28,4 +29,7 @@
     text-align: right;
     cursor: pointer;
     font-size: 12px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
