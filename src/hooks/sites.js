@@ -17,13 +17,13 @@ const useSites = () => {
         dispatch(_removeSiteUrl(value));
         const {site, url} = value;
         const _url = getSiteById(sites, site).urls.filter(u => u.id === url)[0];
-        removeSiteHttp({site: _url.url, url: _url.id})
+        removeSiteHttp( _url.url, _url.id)
     }
     function removeSite(value) {
         dispatch(_removeSite(value));
         const {site} = value;
         const url = getSiteById(sites, site).urls[0];
-        removeSiteHttp({site: url.url, url: url.id, deleteAll: true})
+        removeSiteHttp(url.url, url.id, true);
     }
     function setSites(value) {
         dispatch(setSitesAction(value));
