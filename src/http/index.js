@@ -28,7 +28,7 @@ export const httpSignup = ({name, password, isComp, cb, errorFn}) => {
     _fetcher({url: `${apiUrl}/signUp`, method: 'POST', body: {
             "userName": name,
             "userPass": password,
-            "userType": isComp ? 1 : 0
+            "isWebMaster": !!isComp
         }}, cb, errorFn);
 };
 

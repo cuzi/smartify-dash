@@ -4,9 +4,13 @@
   "private": true,
   "homepage": "https://the-internet.ninja/app",
   "dependencies": {
+    "chart.js": "^2.8.0",
+    "moment": "^2.24.0",
     "react": "^16.9.0",
+    "react-chartjs-2": "^2.7.6",
     "react-dom": "^16.9.0",
-    "react-scripts": "3.1.0"
+    "react-scripts": "3.1.0",
+    "react-table": "^6.10.0"
   },
   "scripts": {
     "start": "react-scripts start",

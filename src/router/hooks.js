@@ -6,15 +6,12 @@ const useRouter = () => {
     const [state, dispatch] = useContext(SmartifyContext);
     const {route: currentRoute, isReady, user} = state;
 
-
-
     function changeRoute(location) {
        dispatch(_changeRoute(location))
     }
     function setUser(userData) {
        dispatch(_setUser(userData))
     }
-
 
     return {
         changeRoute,

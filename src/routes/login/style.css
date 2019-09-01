@@ -1,4 +1,4 @@
-.login input:not([type="checkbox"]),
+.login input:not([type="checkbox"]):not([type='radio']),
 .login button {
     margin: 6px auto;
     display: block;

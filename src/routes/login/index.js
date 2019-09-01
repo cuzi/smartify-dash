@@ -8,7 +8,7 @@ function Login() {
     const [name, setName] = useState('');
     const [error, setError] = useState(false);
     const [password, setPass] = useState('');
-    const cb = ({userType, userName: name}) =>  setUser({userType, name});
+    const cb = ({isWebMaster: userType, userName: name}) =>  setUser({userType, name});
 
     useEffect(() => httpAuth({cb}),[]);
 

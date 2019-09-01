@@ -6,7 +6,7 @@ import './style.css';
 import {httpGetSites} from "../../http";
 
 function UserSites() {
-    const {sites, selectedSite, setSites} = useSites();
+    const {sites, selectedSite, setSites, setSelectedSite} = useSites();
     const [search, setSearch] = useState('');
     const [filteredSites, setFilteredSites] = useState([]);
 
@@ -29,7 +29,7 @@ function UserSites() {
         return (~selectedSite ? <SelectedSite /> : <div className="user-sites">
             <h1>Welcome home! <input placeholder="Search" value={search} onChange={({target}) => setSearch(target.value)} required/></h1>
             <div className="user-sites__list">
-            {(filteredSites || sites).length ? (filteredSites || sites).map(SiteItem) : search.length ? 'No sites found' : 'You have no sites found, if you don\'t have the extension download it'}
+            {(filteredSites || sites).length ? (filteredSites || sites).map(site => SiteItem({viewMoreAction: setSelectedSite, ...site})) : search.length ? 'No sites found' : 'You have no sites found, if you don\'t have the extension download it'}
             </div>
         </div> )}
     return <>Loading...</>;

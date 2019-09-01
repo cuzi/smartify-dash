@@ -1,0 +1,105 @@
+.selected-url h2,
+.selected-domain h2 {
+    font-size: 18px;
+    margin: 8px 0;
+}
+.selected-url__header,
+.selected-domain__header {
+    font-size: 22px;
+    text-align: center;
+    margin-top: 35px;
+}
+.selected-url__header .icon,
+.selected-domain__header .icon {
+    vertical-align: middle;
+}
+.selected-domain__header__remove {
+    float: right;
+    cursor: pointer;
+    margin-right: 16px;
+    font-size: 14px;
+}
+.selected-domain__header__remove:hover {
+    color: #ff9891;
+}
+.selected-url__header a ,
+.selected-domain__header a {
+    text-align: left;
+    color: #77bbff;
+    display: block;
+    margin: 15px;
+    text-decoration: none;
+}
+.selected-url__header a[target="_blank"] {
+    text-align: inherit;
+    color: #fff;
+}
+
+.selected-domain__content {
+    display: flex;
+}
+
+.selected-url__toolbar,
+.selected-url__history,
+.selected-domain__urls,
+.selected-domain__history,
+.selected-domain__toolbar {
+    width: calc(50% - 40px);
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    padding: 8px;
+    text-align: left;
+    margin: 16px 11px;
+}
+
+.selected-url__toolbar,
+.selected-url__history,
+.selected-domain__urls {
+    width: calc(100% - 40px);
+}
+.selected-domain__urls .rt-tr-group:hover {
+    background: rgba(255, 152, 145, 0.16);
+    cursor: pointer;
+}
+.selected-domain__toolbar .toolbar {
+    background: black;
+    padding: 5px;
+}
+
+.history-list {
+    display: inline-table;
+    width: 100%;
+}
+
+.history-list__row {
+    display: table-row;
+    line-height: 20px;
+    font-size: 14px;
+}
+
+.history-list__row > a,
+.history-list__row > span {
+    display: table-cell;
+}
+
+.selected-url__tiles,
+.selected-domain__tiles {
+    display: flex;
+    margin-top: 23px;
+    justify-content: space-around;
+}
+.selected-url__tiles__item h2,
+.selected-domain__tiles__item h2 {
+    font-size: 30px;
+    text-shadow: 1px 1px #000;
+}
+.selected-url__tiles__item,
+.selected-domain__tiles__item {
+    padding: 12px;
+    background: #5c5c5c;
+    width: calc(25% - 46px);
+    box-shadow: inset 4px 0 #427ab3, inset 0 0 0 1px #9d9d9d;
+}
+.selected-url__tiles__item {
+    width: calc(50% - 46px);
+}

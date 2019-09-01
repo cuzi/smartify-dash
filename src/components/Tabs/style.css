@@ -1,0 +1,20 @@
+.tabs__header {
+    display: inline-block;
+    width: 100%;
+}
+.tabs__header__item {
+    cursor: pointer;
+    padding: 10px 23px;
+    float: left;
+    text-transform: capitalize;
+}
+
+.tabs__header__item:hover {
+    box-shadow: inset 0 -2px #77baff5c;
+}
+
+.tabs__header__item--active:hover,
+.tabs__header__item--active {
+    cursor: default;
+    box-shadow: inset 0 -2px #77baff;
+}

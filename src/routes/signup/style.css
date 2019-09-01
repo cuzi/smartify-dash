@@ -1,4 +1,4 @@
-.signup input:not([type="checkbox"]),
+.signup input:not([type="checkbox"]):not([type='radio']),
 .signup button {
     margin: 6px auto;
     display: block;
