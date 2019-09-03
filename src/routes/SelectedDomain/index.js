@@ -6,6 +6,7 @@ import {groupBy} from "../../helpers/arrayHelper";
 import SelectedUrl from "./SelectedUrl";
 import DomainUrlSection from "./DomainUrlsSection";
 import DomainTile from "./DomainTile";
+import DomainHistorySection from "./DomainHistorySection";
 import DomainChartSection from "./DomainChartSection";
 import Tabs from "../../components/Tabs";
 
@@ -39,24 +40,37 @@ function SelectedDomain() {
                 </h1>
                 <Tabs childrenObject={{
                     dashboard: <>
-                        <div className="selected-domain__tiles">
-                            <DomainTile title={currSite.hits.length} info="Total page views"/>
-                            <DomainTile title={usersArr.length} info="Unique users"/>
-                            <DomainTile title={urlsArr.length} info="Visited pages"/>
-                            <DomainTile title={usersArr.filter(({count}) => count > 4).length} info="Returning users"/>
-                        </div>
-                        <DomainChartSection currSite={currSite}/>
-                        <DomainUrlSection data={urlsArr} selectRow={setURL}/>
-                    </>,
-                    code: <>
-                        <h1>Just Copy ...</h1>
+                    <div className="selected-domain__tiles">
+                        <DomainTile title={currSite.hits.length} info="Total page views"/>
+                        <DomainTile title={usersArr.length} info="Unique users"/>
+                        <DomainTile title={urlsArr.length} info="Visited pages"/>
+                        <DomainTile title={usersArr.filter(({count}) => count > 4).length} info="Returning users"/>
+                    </div>
+                    <DomainChartSection currSite={currSite} urlsArr={urlsArr} />
+                </>,
+                trafic:  <>
+                <DomainHistorySection currSite={currSite} />
+                <DomainUrlSection data={urlsArr} selectRow={setURL}/>
+            </>,
+                    code: <div className="selected-domain__code">
+                        <h2>Just Copy ...</h2>
 
                         Here's your unique Code snippet. Click this code and copy it right to your clipboard.
                         <br/>
                         <pre>
-
+                            {`(function(d, script) {
+    script = d.createElement('script');
+    script.type = 'text/javascript';
+    script.async = true;
+    script.onload = function(){
+        smartify.init('${selectedDomain}');
+    };
+    script.src = 'https://the-internet.ninja/smartifyJs/smartify.js';
+    d.getElementsByTagName('head')[0].appendChild(script);
+}(document));`}
                         </pre>
-                    </>
+                        Then just paste it in a script Tag in any page that you want to use Smartify SmartNav
+                    </div>
                 }}/>
 
             </div> :

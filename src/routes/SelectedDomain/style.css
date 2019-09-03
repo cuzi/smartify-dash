@@ -43,19 +43,26 @@
 .selected-url__history,
 .selected-domain__urls,
 .selected-domain__history,
+.selected-domain__code,
 .selected-domain__toolbar {
-    width: calc(50% - 40px);
+    width: calc(100% - 40px);
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.4);
     padding: 8px;
     text-align: left;
     margin: 16px 11px;
 }
+.selected-domain__code pre {
+    margin: 13px 20px;
+    background: #000;
+    border-radius: 5px;
+    padding: 20px;
+    border: 2px dashed;
+    color: #d5dbe8;
+}
 
-.selected-url__toolbar,
-.selected-url__history,
-.selected-domain__urls {
-    width: calc(100% - 40px);
+.selected-domain__toolbar {
+    width: calc(50% - 40px);
 }
 .selected-domain__urls .rt-tr-group:hover {
     background: rgba(255, 152, 145, 0.16);

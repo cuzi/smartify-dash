@@ -42,8 +42,8 @@ function PartnersDash() {
     if (domains) {
         return (~selectedDomain ? <SelectedDomain /> : <div className="partners-dash">
             <AddDomainModal isOpen={isAddModalOpen} closeFn={() => setAddModalMode(false)} addDomainFn={addDomain} />
-            <h1>Welcome home! <input placeholder="Search" value={search} onChange={({target}) => setSearch(target.value)} required/></h1>
-            {domains.length ? <button onClick={openAddModal}>Add domain</button> : null}
+            <h1>Welcome home! {domains.length ? <button onClick={openAddModal}>Add domain</button> : null} <input placeholder="Search" value={search} onChange={({target}) => setSearch(target.value)} required/></h1>
+            
             <div className="partners-dash__list">
                 {(filteredDomains || domains).length ? (filteredDomains || domains).map(site => SiteItem({ ...site, viewMoreAction: setSelectedDomain})) : search.length ?
                     'No domains found' :

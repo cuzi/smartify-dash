@@ -1,7 +1,6 @@
 import React from "react";
-import {Bar} from "react-chartjs-2";
+import {Bar, Doughnut} from "react-chartjs-2";
 import {arrayToDatesBucket, defaultChartOptions} from "../../helpers/chartHelper";
-import DomainHistorySection from "./DomainHistorySection";
 
 const defaultDataset = {
     backgroundColor: '#ff9890a8',
@@ -25,15 +24,29 @@ const expComputeDateObj = (currSite) => {
     }
 };
 
-function DomainChartSection({currSite}) {
+function DomainChartSection({currSite, urlsArr}) {
     const _chartData = expComputeDateObj(currSite);
+    const _doughnutTaples = {};
+    urlsArr.sort((a, b) => b.count - a.count).slice(0, 5).forEach(url => _doughnutTaples[url.name] = url.count);
+    const _doughnutData = {
+        labels: Object.keys(_doughnutTaples),
+        datasets: [
+            {
+                data: Object.values(_doughnutTaples),
+                backgroundColor: ['#ff9890', '#427ab3', '#77bbff', '#aaa', '#fff']
+            }
+        ],
+    };
 
     return <div className="selected-domain__content">
+    <div className="selected-domain__toolbar">
+        <h2>Visits</h2>
+        <Bar data={_chartData} options={defaultChartOptions} width={520} height={260}/>
+    </div>
         <div className="selected-domain__toolbar">
-            <h2>SmartInt</h2>
-            <Bar data={_chartData} options={defaultChartOptions} width={520} height={260}/>
+            <h2>Top pages</h2>
+            <Doughnut data={_doughnutData} options={{legend: { display: false}}} width={520} height={260}/>
         </div>
-        <DomainHistorySection currSite={currSite}/>
     </div>;
 }
 
